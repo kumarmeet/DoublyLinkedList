@@ -1,2 +1,2 @@
 # DoublyLinkedList
-doubly linked list DS
+This is similiar to singly linked list but doubly linked list has one more member variable pointer named previous. In sinlgy linked list points to next node but doubly linked list points previous as well as next node also and allows traversal two ways. If we find some item in singly linked list we will traverse from start but in doubly linked list we will start from back to item. 
