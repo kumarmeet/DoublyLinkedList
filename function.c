@@ -7,7 +7,7 @@ struct Node
     struct Node *next;
 };
 struct Node * searchItem(struct Node*, int);
-void deleteParticularNode(struct Node*, int);
+void deleteParticularNode(struct Node**, int);
 void deleteLastItemAtNode(struct Node**);
 void deleteFistItemAtNode(struct Node**);
 void addItemAfterNode(struct Node*, int);
@@ -28,22 +28,22 @@ struct Node * searchItem(struct Node *s, int data)
         return NULL;
 };
 
-void deleteParticularNode(struct Node *s, int data)
+void deleteParticularNode(struct Node **s, int data)
 {
     struct Node *t, *r;
-    t = s;
+    t = r = *s;
 
-    while(t)
+    if(r->item == data)
     {
-        if(t->item == data)
-        {
-            t->pre->next = t->next;
-            t->next->pre = t->pre->next;
-            r = t;
-            break;
-        }
-        t = t->next;
+        *s = r->next;
     }
+    while(r->item != data)
+    {
+        t = r;
+        r = r->next;
+    }
+    t->next = r->next;
+    t->next->pre = t->next;
     free(r);
 }
 
@@ -96,7 +96,7 @@ void addItemAtStart(struct Node **s, int data)
     r->next = *s;
 
     if(*s != NULL)
-        (*s)->next = r;
+        (*(*s)->pre = r;
     *s=r;
 }
 
