@@ -11,7 +11,7 @@ struct Node
 int menu(void);
 void printMetaData(struct Node *);
 struct Node * searchItem(struct Node*, int);
-void deleteParticularNode(struct Node*, int);
+void deleteParticularNode(struct Node**, int);
 void deleteLastItemAtNode(struct Node**);
 void deleteFistItemAtNode(struct Node**);
 void addItemAfterNode(struct Node*, int);
@@ -56,7 +56,7 @@ int main()
             scanf("%d",&item);
             if(p = searchItem(start,item))
             {
-                deleteParticularNode(p,item);
+                deleteParticularNode(&p,item);
             }
             else
                 printf("Item Not found");
