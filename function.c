@@ -96,7 +96,7 @@ void addItemAtStart(struct Node **s, int data)
     r->next = *s;
 
     if(*s != NULL)
-        (*(*s)->pre = r;
+        (*s)->pre = r;
     *s=r;
 }
 
